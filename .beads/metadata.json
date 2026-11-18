@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "ofxTonic",
+  "project_id": "dd68c137-0cc3-441c-b77d-ec5f985eea21"
+}
