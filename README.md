@@ -8,8 +8,11 @@ https://github.com/TonicAudio/Tonic
 
 Watch a video tutorial at https://www.youtube.com/watch?v=ppf3b8BC6yU
 
-The code contained in the src/ folder of this repository is copied directly from this commit in the main Tonic repository:
-a2c2546ec9923ad79296b06e181a2b6fff69394d
+Tonic itself is included as a git submodule at `libs/Tonic` (tracking https://github.com/jtatman/Tonic). After cloning, run:
+
+    git submodule update --init
+
+Requires C++17. Tonic no longer imports `namespace std`, so qualify `std::` names in your own code if you relied on that.
 
 Note: we are currently reviving and updating Tonic. We need to update the
 examples here to make them work in openFrameworks 0.9.3.

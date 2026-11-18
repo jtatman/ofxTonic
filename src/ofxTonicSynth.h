@@ -25,14 +25,14 @@ class ofControlChangetSubscriber : public ControlChangeSubscriber{
   public:
     ofEvent<float> event;
     ofxTonicSynth* synth;
-    void valueChanged(string name, TonicFloat value){
+    void valueChanged(std::string name, TonicFloat value){
       ofNotifyEvent(event, value, synth);
     }
 };
 
 class ofxTonicSynth : public Synth{
   
-  vector<ofControlChangetSubscriber*> eventSubscribers;
+  std::vector<ofControlChangetSubscriber*> eventSubscribers;
 
 public:
 

@@ -17,7 +17,7 @@ ofxTonicSynth::ofxTonicSynth(){
 }
 
 ofxTonicSynth::~ofxTonicSynth(){
-  vector<ofControlChangetSubscriber*>::iterator it = eventSubscribers.begin();
+  std::vector<ofControlChangetSubscriber*>::iterator it = eventSubscribers.begin();
   for(; it < eventSubscribers.end(); it++){
     delete *it;
   }

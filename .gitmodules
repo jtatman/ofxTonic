@@ -1,0 +1,4 @@
+[submodule "libs/Tonic"]
+	path = libs/Tonic
+	url = https://github.com/jtatman/Tonic.git
+	branch = phase0-modernize

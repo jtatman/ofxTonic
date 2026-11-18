@@ -58,20 +58,25 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 <!-- END BEADS INTEGRATION -->
 
 
-## Build & Test
 
-_Add your build and test commands here_
+<!-- BEGIN PROJECT SECTION (keep identical in CLAUDE.md and AGENTS.md) -->
+## Workflow and tooling
 
-```bash
-# Example:
-# npm install
-# npm test
-```
+- **Tasks / short-term memory:** `bd` (beads). Start with `bd ready`.
+- **Long-term memory and development process:** `mnemoria` (store in `./mnemoria`, committed). Process rules
+  live in mnemoria; see also the Tonic repo's mnemoria store.
+- **Code analysis:** `codegraph` (index in `.codegraph/`, not committed). Refresh with `codegraph sync`.
+- **Git:** commit after every significant change and at checkpoints. `origin` is the jtatman/ofxTonic fork.
+- Keep this section identical in `CLAUDE.md` and `AGENTS.md`.
 
-## Architecture Overview
+## Layout
 
-_Add a brief overview of your project architecture_
+- `src/ofxTonic.h`, `src/ofxTonicSynth.{h,cpp}`: ~100 lines of openFrameworks glue (oF events, audio callback).
+- `libs/Tonic`: git submodule of jtatman/Tonic (the DSP library). Do not copy Tonic sources into this repo.
+- `example_*`: openFrameworks example apps (need an openFrameworks install to build; not built in CI).
 
-## Conventions & Patterns
+## Build
 
-_Add your project-specific conventions here_
+No standalone build: add the addon to an openFrameworks project with the projectGenerator.
+Tonic itself is built and tested in its own repo (CMake + ctest, CI on Linux/Windows/macOS).
+<!-- END PROJECT SECTION -->

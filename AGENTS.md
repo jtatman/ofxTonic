@@ -126,3 +126,25 @@ bd prime                # Refresh Beads context
 
 **Architecture in one line:** issues live in a local Dolt DB; sync uses `refs/dolt/data` on your git remote; `.beads/issues.jsonl` is a passive export. See https://github.com/gastownhall/beads/blob/main/docs/core-concepts/sync-concepts.md for details and anti-patterns.
 <!-- END BEADS CODEX SETUP -->
+
+<!-- BEGIN PROJECT SECTION (keep identical in CLAUDE.md and AGENTS.md) -->
+## Workflow and tooling
+
+- **Tasks / short-term memory:** `bd` (beads). Start with `bd ready`.
+- **Long-term memory and development process:** `mnemoria` (store in `./mnemoria`, committed). Process rules
+  live in mnemoria; see also the Tonic repo's mnemoria store.
+- **Code analysis:** `codegraph` (index in `.codegraph/`, not committed). Refresh with `codegraph sync`.
+- **Git:** commit after every significant change and at checkpoints. `origin` is the jtatman/ofxTonic fork.
+- Keep this section identical in `CLAUDE.md` and `AGENTS.md`.
+
+## Layout
+
+- `src/ofxTonic.h`, `src/ofxTonicSynth.{h,cpp}`: ~100 lines of openFrameworks glue (oF events, audio callback).
+- `libs/Tonic`: git submodule of jtatman/Tonic (the DSP library). Do not copy Tonic sources into this repo.
+- `example_*`: openFrameworks example apps (need an openFrameworks install to build; not built in CI).
+
+## Build
+
+No standalone build: add the addon to an openFrameworks project with the projectGenerator.
+Tonic itself is built and tested in its own repo (CMake + ctest, CI on Linux/Windows/macOS).
+<!-- END PROJECT SECTION -->
